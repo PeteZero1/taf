@@ -409,7 +409,7 @@ class Mage_Selenium_TestCase extends PHPUnit_Extensions_SeleniumTestCase
         $testMethods = array();
         $class = new ReflectionClass(self::$_testClass);
         foreach ($class->getMethods() as $method) {
-            if (PHPUnit_Framework_TestSuite::isPublicTestMethod($method)) {
+            if ($method->isPublic()) {
                 $testMethods[] = $method->getName();
             }
         }
