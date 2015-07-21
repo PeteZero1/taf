@@ -372,6 +372,8 @@ class Mage_Selenium_TestCase extends PHPUnit_Extensions_SeleniumTestCase
      */
     public function prepareBrowserSession()
     {
+        return;     // Trying to fix FireFox crashing pre-test
+
         $browsers = $this->_configHelper->getConfigBrowsers();
         if ($this->frameworkConfig['shareSession'] && empty(self::$browsers)) {
             $this->setupSpecificBrowser($browsers['default']);
