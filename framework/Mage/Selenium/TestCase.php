@@ -273,6 +273,10 @@ class Mage_Selenium_TestCase extends PHPUnit_Extensions_SeleniumTestCase
                 return $helper;
             }
         }
+
+        var_dump($command);
+        var_dump($arguments);
+
         return parent::__call($command, $arguments);
     }
 
@@ -372,22 +376,17 @@ class Mage_Selenium_TestCase extends PHPUnit_Extensions_SeleniumTestCase
      */
     public function prepareBrowserSession()
     {
-        // Trying to fix FireFox crashing pre-test
         $browsers = $this->_configHelper->getConfigBrowsers();
-        $this->setupSpecificBrowser($browsers['default']);
-        return;
-
-//        $browsers = $this->_configHelper->getConfigBrowsers();
-//        if ($this->frameworkConfig['shareSession'] && empty(self::$browsers)) {
-//            $this->setupSpecificBrowser($browsers['default']);
-//            $this->shareSession($this->prepareTestSession());
-//        } elseif (empty(self::$browsers)) {
-//            $this->setupSpecificBrowser($browsers['default']);
-//            $this->prepareTestSession();
-//        } else {
-//            $this->frameworkConfig['shareSession'] = false;
-//            $this->prepareTestSession();
-//        }
+        if ($this->frameworkConfig['shareSession'] && empty(self::$browsers)) {
+            $this->setupSpecificBrowser($browsers['default']);
+            $this->shareSession($this->prepareTestSession());
+        } elseif (empty(self::$browsers)) {
+            $this->setupSpecificBrowser($browsers['default']);
+            $this->prepareTestSession();
+        } else {
+            $this->frameworkConfig['shareSession'] = false;
+            $this->prepareTestSession();
+        }
     }
 
     final function setUp()
