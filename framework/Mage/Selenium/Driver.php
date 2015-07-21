@@ -51,8 +51,6 @@ class Mage_Selenium_Driver extends PHPUnit_Extensions_SeleniumTestCase_Driver
      */
     public function stopBrowserSession()
     {
-        return parent::stop();
-
         if (!isset($this->sessionId)) {
             return;
         }
