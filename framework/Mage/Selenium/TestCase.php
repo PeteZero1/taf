@@ -294,44 +294,44 @@ class Mage_Selenium_TestCase extends PHPUnit_Extensions_SeleniumTestCase
      *
      * @return \Mage_Selenium_Driver|\PHPUnit_Extensions_SeleniumTestCase_Driver
      */
-    protected function getDriver(array $browser)
-    {
-        if (!isset($browser['name'])) {
-            $browser['name'] = '';
-        }
-        if (!isset($browser['browser'])) {
-            $browser['browser'] = '';
-        }
-        if (!isset($browser['host'])) {
-            $browser['host'] = 'localhost';
-        }
-        if (!isset($browser['port'])) {
-            $browser['port'] = 4444;
-        }
-        if (!isset($browser['timeout'])) {
-            $browser['timeout'] = 30;
-        }
-        if (!isset($browser['httpTimeout'])) {
-            $browser['httpTimeout'] = 45;
-        }
-        $driver = new Mage_Selenium_Driver();
-        $driver->setName($browser['name']);
-        $driver->setBrowser($browser['browser']);
-        $driver->setHost($browser['host']);
-        $driver->setPort($browser['port']);
-        $driver->setTimeout($browser['timeout']);
-        $driver->setHttpTimeout($browser['httpTimeout']);
-        $driver->setTestCase($this);
-        $driver->setTestId($this->testId);
-
-        $driver->setLogHandle($this->_testConfig->getLogFile());
-        $driver->setBrowserUrl($this->_configHelper->getBaseUrl());
-        $this->_browserTimeoutPeriod = $browser['timeout'] * 1000;
-
-        $this->drivers[0] = $driver;
-
-        return $driver;
-    }
+//    protected function getDriver(array $browser)
+//    {
+//        if (!isset($browser['name'])) {
+//            $browser['name'] = '';
+//        }
+//        if (!isset($browser['browser'])) {
+//            $browser['browser'] = '';
+//        }
+//        if (!isset($browser['host'])) {
+//            $browser['host'] = 'localhost';
+//        }
+//        if (!isset($browser['port'])) {
+//            $browser['port'] = 4444;
+//        }
+//        if (!isset($browser['timeout'])) {
+//            $browser['timeout'] = 30;
+//        }
+//        if (!isset($browser['httpTimeout'])) {
+//            $browser['httpTimeout'] = 45;
+//        }
+//        $driver = new Mage_Selenium_Driver();
+//        $driver->setName($browser['name']);
+//        $driver->setBrowser($browser['browser']);
+//        $driver->setHost($browser['host']);
+//        $driver->setPort($browser['port']);
+//        $driver->setTimeout($browser['timeout']);
+//        $driver->setHttpTimeout($browser['httpTimeout']);
+//        $driver->setTestCase($this);
+//        $driver->setTestId($this->testId);
+//
+//        $driver->setLogHandle($this->_testConfig->getLogFile());
+//        $driver->setBrowserUrl($this->_configHelper->getBaseUrl());
+//        $this->_browserTimeoutPeriod = $browser['timeout'] * 1000;
+//
+//        $this->drivers[0] = $driver;
+//
+//        return $driver;
+//    }
 
     /**
      * Implementation of setUpBeforeClass() method in the object context, called as setUpBeforeTests()<br>
