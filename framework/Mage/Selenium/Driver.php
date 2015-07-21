@@ -58,6 +58,14 @@ class Mage_Selenium_Driver extends PHPUnit_Extensions_SeleniumTestCase_Driver
         $this->sessionId = NULL;
     }
 
+    public function __call($command, $arguments)
+    {
+        var_dump($command);
+        var_dump($arguments);
+
+        parent::__call($command, $arguments);
+    }
+
     /**
      * Sends a command to the Selenium RC server.
      * Extension: transaction logging to opened file stream in view: TIME,REQUEST,RESPONSE or TIME,EXCEPTION
