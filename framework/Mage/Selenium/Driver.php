@@ -63,7 +63,7 @@ class Mage_Selenium_Driver extends PHPUnit_Extensions_SeleniumTestCase_Driver
         var_dump($command);
         var_dump($arguments);
 
-        parent::__call($command, $arguments);
+        return parent::__call($command, $arguments);
     }
 
     /**
