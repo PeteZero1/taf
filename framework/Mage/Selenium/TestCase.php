@@ -273,10 +273,6 @@ class Mage_Selenium_TestCase extends PHPUnit_Extensions_SeleniumTestCase
                 return $helper;
             }
         }
-
-        var_dump($command);
-        var_dump($arguments);
-
         return parent::__call($command, $arguments);
     }
 
