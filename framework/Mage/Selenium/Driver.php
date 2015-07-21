@@ -47,38 +47,6 @@ class Mage_Selenium_Driver extends PHPUnit_Extensions_SeleniumTestCase_Driver
     }
 
     /**
-     * @return string
-     */
-    public function start()
-    {
-        if ($this->browserUrl == NULL) {
-            throw new PHPUnit_Framework_Exception(
-                'setBrowserUrl() needs to be called before start().'
-            );
-        }
-        if ($this->webDriverCapabilities !== NULL) {
-            $seleniumServerUrl = PHPUnit_Extensions_Selenium2TestCase_URL::fromHostAndPort($this->host, $this->port);
-            $driver = new PHPUnit_Extensions_Selenium2TestCase_Driver($seleniumServerUrl);
-            $session = $driver->startSession($this->webDriverCapabilities, new PHPUnit_Extensions_Selenium2TestCase_URL($this->browserUrl));
-            $webDriverSessionId = $session->id();
-            $this->sessionId = $this->getString(
-                'getNewBrowserSession',
-                array($this->browser, $this->browserUrl, '',
-                    "webdriver.remote.sessionid=$webDriverSessionId")
-            );
-            $this->doCommand('setTimeout', array($this->seleniumTimeout * 1000));
-        }
-//        if (!isset($this->sessionId)) {
-//            $this->sessionId = $this->getString(
-//                'getNewBrowserSession',
-//                array($this->browser, $this->browserUrl)
-//            );
-//            $this->doCommand('setTimeout', array($this->seleniumTimeout * 1000));
-//        }
-        return $this->sessionId;
-    }
-
-    /**
      * Stop browser session
      */
     public function stopBrowserSession()
